@@ -64,6 +64,14 @@ public class BankListTest {
         assertEquals(testList.returnList(), arrayList);
     }
     @Test
+    void testDelAcc3(){
+        testList.addAccount(b);
+        testList.addAccount(a);
+        testList.delAccount(b);
+        testList.delAccount(a);
+        assertEquals(testList.returnList(),arrayList);
+    }
+    @Test
     void testGetSize(){
         testList.addAccount(a);
         assertEquals(1,testList.getSize());
@@ -72,6 +80,16 @@ public class BankListTest {
     void testGetSize2(){
         assertEquals(0,testList.getSize());
 
+    }
+    @Test
+    void testReturnList(){
+        assertEquals(testList.returnList(),arrayList);
+    }
+    @Test
+    void testReturnList2(){
+        testList.addAccount(a);
+        arrayList.add(a);
+        assertEquals(testList.returnList(),arrayList);
     }
 
 }
