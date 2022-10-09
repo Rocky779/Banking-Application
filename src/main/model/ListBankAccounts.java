@@ -10,7 +10,7 @@ public class ListBankAccounts {
     //EFFECTS: Creates an empty list of BankAccount
 
     public ListBankAccounts() {
-        myBank = new ArrayList<BankAccount>();
+        myBank = new ArrayList<>();
 
     }
 

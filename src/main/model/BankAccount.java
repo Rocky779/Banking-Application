@@ -51,18 +51,18 @@ public class BankAccount {
     }
 
     public String getMobileNumber() {
-        return mobileNumber;
+        return this.mobileNumber;
     }
 
     public String getSin() {
-        return sin;
+        return this.sin;
     }
 
     public double getBankBalance() {
-        return bankBalance;
+        return this.bankBalance;
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 }

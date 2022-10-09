@@ -22,7 +22,7 @@ public class BankListTest {
         testList = new ListBankAccounts();
         b = new BankAccount("rsa@gmail.com", "123456", "Robert", "1755 Park Lane",
                 "6057899009", "123456789");
-        arrayList = new ArrayList<BankAccount>();
+        arrayList = new ArrayList<>();
         a = new BankAccount("rsa4@gmail.com", "123456", "Tom", "1745 Park Lane",
                 "6057890009", "193456789");
     }
@@ -63,33 +63,38 @@ public class BankListTest {
         arrayList.add(b);
         assertEquals(testList.returnList(), arrayList);
     }
+
     @Test
-    void testDelAcc3(){
+    void testDelAcc3() {
         testList.addAccount(b);
         testList.addAccount(a);
         testList.delAccount(b);
         testList.delAccount(a);
-        assertEquals(testList.returnList(),arrayList);
+        assertEquals(testList.returnList(), arrayList);
     }
+
     @Test
-    void testGetSize(){
+    void testGetSize() {
         testList.addAccount(a);
-        assertEquals(1,testList.getSize());
+        assertEquals(1, testList.getSize());
     }
+
     @Test
-    void testGetSize2(){
-        assertEquals(0,testList.getSize());
+    void testGetSize2() {
+        assertEquals(0, testList.getSize());
 
     }
+
     @Test
-    void testReturnList(){
-        assertEquals(testList.returnList(),arrayList);
+    void testReturnList() {
+        assertEquals(testList.returnList(), arrayList);
     }
+
     @Test
-    void testReturnList2(){
+    void testReturnList2() {
         testList.addAccount(a);
         arrayList.add(a);
-        assertEquals(testList.returnList(),arrayList);
+        assertEquals(testList.returnList(), arrayList);
     }
 
 }
