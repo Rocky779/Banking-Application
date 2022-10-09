@@ -7,6 +7,7 @@ import model.ListBankAccounts;
 import java.util.Scanner;
 
 public class Main {
+    @SuppressWarnings("methodlength")
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ListBankAccounts myList = new ListBankAccounts();
