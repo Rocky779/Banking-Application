@@ -30,7 +30,8 @@ public class ListBankAccounts {
     public int getSize() {
         return myBank.size();
     }
-//EFFECTS: Returns the list of bank accounts
+
+    //EFFECTS: Returns the list of bank accounts
     public ArrayList<BankAccount> returnList() {
         return myBank;
     }

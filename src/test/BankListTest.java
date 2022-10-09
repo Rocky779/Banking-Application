@@ -34,9 +34,8 @@ public class BankListTest {
 
     @Test
     void testAddAcc() {
-        testList.addAccount(b);
-        arrayList.add(b);
-        assertEquals(testList.returnList(), arrayList);
+        assertEquals(testList.returnList().add(b), arrayList.add(b));
+
 
     }
 
