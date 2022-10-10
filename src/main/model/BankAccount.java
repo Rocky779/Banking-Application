@@ -32,7 +32,7 @@ public class BankAccount {
         if (amount > 0) {
             this.bankBalance += amount;
         } else {
-            System.exit(0);
+            this.bankBalance = this.bankBalance;
         }
     }
 
@@ -43,7 +43,7 @@ public class BankAccount {
         if (amount > 0) {
             this.bankBalance -= amount;
         } else {
-            System.exit(0);
+            this.bankBalance = this.bankBalance;
         }
     }
 

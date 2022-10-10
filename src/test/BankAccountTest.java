@@ -40,6 +40,11 @@ public class BankAccountTest {
         assertEquals(1500.8, testAcc.getBankBalance());
 
     }
+    @Test
+    void testDeposit3(){
+        testAcc.deposit(-3);
+        assertEquals(0,testAcc.getBankBalance());
+    }
 
     @Test
     void testWithdraw() {
@@ -62,6 +67,15 @@ public class BankAccountTest {
         testAcc.withdraw(100.5);
         assertEquals(299.5, testAcc.getBankBalance());
     }
+
+    @Test
+    void testWithdraw3(){
+        testAcc.deposit(300);
+        testAcc.withdraw(-400);
+        assertEquals(300,testAcc.getBankBalance());
+    }
+
+
 
 
 }
