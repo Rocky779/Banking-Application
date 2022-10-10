@@ -28,19 +28,30 @@ public class BankAccount {
 
 
     public void deposit(double amount) {
-        this.bankBalance += amount;
+
+        if (amount > 0) {
+            this.bankBalance += amount;
+        } else {
+            System.exit(0);
+        }
     }
 
     //REQUIRES : amount >0 and amount <= getBankBalance()
     //MODIFIES: this
     // EFFECTS: decrements the bank balance by amount(in dollars)
     public void withdraw(double amount) {
-        this.bankBalance -= amount;
+        if (amount > 0) {
+            this.bankBalance -= amount;
+        } else {
+            System.exit(0);
+        }
     }
+
 
     public String getEmail() {
         return this.email;
     }
+
 
     public String getName() {
         return this.name;
