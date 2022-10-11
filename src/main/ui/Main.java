@@ -45,6 +45,7 @@ public class Main {
                 if (ch.equals("y")) {
                     continue;
                 } else {
+                    System.out.println("Thank you!You have successfully logged out");
                     break;
                 }
 
@@ -79,6 +80,7 @@ public class Main {
                                 System.out.println("Enter y/n");
                                 String yn = sc.next();
                                 if (yn.equals("n")) {
+                                    System.out.println("Thank you!You have successfully logged out");
                                     System.exit(0);
                                 }
                             } else if (ch == 2) {
@@ -98,6 +100,7 @@ public class Main {
                                 String yn = sc.next();
                                 sc.nextLine();
                                 if (yn.equals("n")) {
+                                    System.out.println("Thank you!You have successfully logged out");
                                     System.exit(0);
 
 
@@ -116,6 +119,7 @@ public class Main {
                                 String yn = sc.next();
                                 sc.nextLine();
                                 if (yn.equals("n")) {
+                                    System.out.println("Thank you!You have successfully logged out");
                                     System.exit(0);
 
                                 }
