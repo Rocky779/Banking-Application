@@ -20,7 +20,7 @@ This project is of interest to me as I am interested in banking and finance. Thi
 * As a user I want to be able to login after creating my new account using my username and password and log out as well. Being able to log in indicates that account details have been successfully added to the list of bank accounts.
 * As a user I want to be able to view the details of my bank account like my personal information and bank balance.
 * As a user I want to be able to make withdrawals and deposits to my account and be given a warning if a withdrawal fails due to insufficient balance.
-* As a user I want to be able to delete my account and thus remove my details from the list of users.
+* As a user I want to be able to delete my account and thus remove my details from the list of the users.
 
 
 
