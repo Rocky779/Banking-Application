@@ -19,12 +19,12 @@ public class BankListTest {
 
     @BeforeEach
     void runBefore() {
-        testList = new ListBankAccounts();
+        testList = new ListBankAccounts("Bank1");
         b = new BankAccount("rsa@gmail.com", "123456", "Robert", "1755 Park Lane",
-                "6057899009", "123456789");
+                "6057899009", "123456789",0);
         arrayList = new ArrayList<>();
         a = new BankAccount("rsa4@gmail.com", "123456", "Tom", "1745 Park Lane",
-                "6057890009", "193456789");
+                "6057890009", "193456789",0);
     }
 
     @Test

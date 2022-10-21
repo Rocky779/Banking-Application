@@ -1,8 +1,11 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 //Represents a bank account having details like email address,password,name of the account holder,residential address,
 //mobile number,Social Insurance Number,and the bank balance of the account
-public class BankAccount {
+public class BankAccount implements Writable {
     private String email;
     private String password;
     private String name;
@@ -11,16 +14,17 @@ public class BankAccount {
     private String sin;
     private double bankBalance;
 
-    // EFFECTS: constructs a bank account with email,password,name,address,mobile number, sin  with zero
-    // bank account balance
-    public BankAccount(String email, String password, String name, String address, String mobileNumber, String sin) {
+    // EFFECTS: constructs a bank account with email,password,name,address,mobile number, sin  with initial deposit made
+    // into account which would be the initial bank account balance
+    public BankAccount(String email, String password, String name, String address, String mobileNumber,
+                       String sin, double bankBalance) {
         this.email = email;
         this.password = password;
         this.name = name;
         this.address = address;
         this.mobileNumber = mobileNumber;
         this.sin = sin;
-        this.bankBalance = 0;
+        this.bankBalance = bankBalance;
     }
     //REQUIRES : amount >0
     //MODIFIES: this
@@ -75,5 +79,19 @@ public class BankAccount {
 
     public String getPassword() {
         return this.password;
+    }
+
+    @Override
+
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("email", email);
+        json.put("password", password);
+        json.put("name", name);
+        json.put("address", address);
+        json.put("mobile number", mobileNumber);
+        json.put("sin", sin);
+        json.put("bank balance", bankBalance);
+        return json;
     }
 }

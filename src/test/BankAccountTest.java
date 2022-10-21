@@ -13,7 +13,7 @@ public class BankAccountTest {
     @BeforeEach
     void runBefore() {
         testAcc = new BankAccount("rsa@gmail.com", "123456", "Robert", "1755 Park Lane",
-                "6057899009", "123456789");
+                "6057899009", "123456789",0);
 
     }
 

@@ -1,0 +1,23 @@
+{
+  "name": "My Bank Account",
+  "myBank": [{
+    "email": "123@gmail.com",
+    "password": "123456",
+    "name": "Rocky",
+    "address": "1755 Street",
+    "mobile number": "12345678",
+    "sin": "1234567890",
+    "bank balance": 900
+  },
+    {
+      "email": "1234@gmail.com",
+      "password": "1234567",
+      "name": "Robert",
+      "address": "1705 Street",
+      "mobile number": "12345670",
+      "sin": "1234567898",
+      "bank balance": 9000
+    }
+
+  ]
+}

@@ -1,0 +1,12 @@
+{
+    "myBank": [{
+        "password": "123",
+        "address": "123",
+        "mobile number": "123",
+        "name": "rochert",
+        "bank balance": 5000,
+        "sin": "123",
+        "email": "123"
+    }],
+    "name": "The account"
+}

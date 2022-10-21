@@ -15,12 +15,19 @@ This is a system that can be used by anyone who wishes to understand basic banki
 
 This project is of interest to me as I am interested in banking and finance. This project will allow me to use java and give the opportunity to get deeper insights into banking and data management and improve my java skills.
 
+Comments and Citations:
+
+*Data persistence is based on the supplied Workroom example for CPSC 210. All classes,interfaces and tests related to
+data persistence have been based on the sample application supplied for CPSC 210.* https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo/tree/master/src/main/persistence
+
 ## User Stories
 * As a user I want to be able to create a new bank account after choosing a username and password. After doing that and giving out details like SIN,name,residential address,phone number and email address, all these details will be stored as a BankAccount data type. This account  will be added to a list which will contain such details of other users as well.
 * As a user I want to be able to login after creating my new account using my username and password and log out as well. Being able to log in indicates that account details have been successfully added to the list of bank accounts.
 * As a user I want to be able to view the details of my bank account like my personal information and bank balance.
 * As a user I want to be able to make withdrawals and deposits to my account and be given a warning if a withdrawal fails due to insufficient balance.
 * As a user I want to be able to delete my account and thus remove my details from the list of the users.
+* As a user, I want to be able to save the list of bank accounts to file.
+* As a user, I want to be able to be able to load the list of bank accounts from file.
 
 
 
