@@ -4,7 +4,6 @@ import model.BankAccount;
 
 import model.ListBankAccounts;
 
-<<<<<<< HEAD
 import java.io.FileNotFoundException;
 
 import java.io.IOException;
@@ -27,17 +26,6 @@ public class BankApp {
     public BankApp() {
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
-=======
-import java.util.Scanner;
-
-//Represents the Banking Application
-public class BankApp {
-    Scanner sc = new Scanner(System.in);
-    ListBankAccounts myList = new ListBankAccounts();
-
-    //EFFECTS: instantiates the banking application
-    public BankApp() {
->>>>>>> origin/main
         System.out.println("Hello! Welcome to the Bank of British Columbia");
         runBank();
     }
@@ -91,13 +79,9 @@ public class BankApp {
         System.out.println("Enter your new password ");
         String password = sc.next();
         sc.nextLine();
-<<<<<<< HEAD
         double balance = sc.nextDouble();
         sc.nextLine();
         BankAccount newAcc = new BankAccount(email, password, name, address, mob, sin, balance);
-=======
-        BankAccount newAcc = new BankAccount(email, password, name, address, mob, sin);
->>>>>>> origin/main
         myList.addAccount(newAcc);
         System.out.println("Account successfully created");
     }
@@ -111,10 +95,7 @@ public class BankApp {
         String pass = sc.next();
         sc.nextLine();
         int num = myList.getSize();
-<<<<<<< HEAD
         loadWorkRoom();
-=======
->>>>>>> origin/main
         for (BankAccount b : myList.returnList()) {
             if (b.getEmail().equals(id) && b.getPassword().equals(pass)) {
                 pb2(b);
@@ -128,11 +109,7 @@ public class BankApp {
         }
     }
 
-<<<<<<< HEAD
     //EFFECTS: Deposits the money in the bank account
-=======
-    //EFFECTS: Deposits money in the bank account
->>>>>>> origin/main
 //MODIFIES: BankAccount b
     public void option1(BankAccount b) {
         System.out.println("How much money would you like to deposit to your account?");
@@ -176,10 +153,7 @@ public class BankApp {
         System.exit(0);
     }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/main
     //EFFECTS: Asks the user for continuing or exiting from the application and then performs the function requested
     public void exit() {
         System.out.println("Would you still like to continue?");
@@ -196,11 +170,7 @@ public class BankApp {
         System.out.println("Welcome" + " " + b.getName());
         while (true) {
             System.out.println("Choose any of the following options,1: Deposit,2:Withdrawal,3:Account Summary,"
-<<<<<<< HEAD
                     + "4: Deletion of account, 5:Loading data, 6:Saving data");
-=======
-                    + "4: Deletion of account");
->>>>>>> origin/main
             int ch = sc.nextInt();
             sc.nextLine();
             if (ch == 1) {
@@ -214,7 +184,6 @@ public class BankApp {
                 exit();
             } else if (ch == 4) {
                 option4(b);
-<<<<<<< HEAD
             } else if (ch == 5) {
                 loadWorkRoom();
             } else if (ch == 6) {
@@ -246,11 +215,6 @@ public class BankApp {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
-=======
-            }
-        }
-    }
->>>>>>> origin/main
 }
 
 
