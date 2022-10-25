@@ -5,10 +5,13 @@ import model.BankAccount;
 import model.ListBankAccounts;
 
 import java.io.FileNotFoundException;
+
 import java.io.IOException;
+
 import java.util.Scanner;
 
 import persistence.JsonReader;
+
 import persistence.JsonWriter;
 
 //Represents the Banking Application
