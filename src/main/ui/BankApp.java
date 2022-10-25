@@ -206,7 +206,7 @@ public class BankApp {
     }
 
     // MODIFIES: this
-    // EFFECTS: loads workroom from file
+    // EFFECTS: loads the workroom from file
     private void loadWorkRoom() {
         try {
             myList = jsonReader.read();
