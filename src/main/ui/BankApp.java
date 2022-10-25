@@ -109,7 +109,7 @@ public class BankApp {
         }
     }
 
-    //EFFECTS: Deposits money in the bank account
+    //EFFECTS: Deposits the money in the bank account
 //MODIFIES: BankAccount b
     public void option1(BankAccount b) {
         System.out.println("How much money would you like to deposit to your account?");
