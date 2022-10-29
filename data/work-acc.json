@@ -1,12 +1,23 @@
 {
-    "myBank": [{
-        "password": "123",
-        "address": "123",
-        "mobile number": "123",
-        "name": "rochert",
-        "bank balance": 5000,
-        "sin": "123",
-        "email": "123"
-    }],
+    "myBank": [
+        {
+            "password": "456",
+            "address": "456",
+            "mobile number": "456",
+            "name": "Jacob",
+            "bank balance": 456,
+            "sin": "123456789",
+            "email": "456"
+        },
+        {
+            "password": "789",
+            "address": "789",
+            "mobile number": "789",
+            "name": "Kimmel",
+            "bank balance": 789,
+            "sin": "789",
+            "email": "789"
+        }
+    ],
     "name": "The account"
 }

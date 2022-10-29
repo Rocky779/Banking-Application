@@ -30,9 +30,11 @@ public class BankApp {
         runBank();
     }
 
-    //EFFECTS: Running part of the banking application which performs all the banking functions.
+    //EFFECTS: Running part of the banking application which takes in user input and performs the banking functions
+    // as requested.
     public void runBank() {
         while (true) {
+            loadWorkRoom();
             System.out.println("Please enter 1 for opening a new bank account, 2 for logging in your existing account");
             int option = sc.nextInt();
             if (option == 1) {
@@ -45,8 +47,7 @@ public class BankApp {
                 }
             } else if (option == 2) {
                 displayOption2();
-                System.out.println("Would you still like to continue?");
-                System.out.println("Enter y/n");
+                System.out.println("Would you still like to continue? Enter y/n");
                 String yn = sc.next();
                 sc.nextLine();
                 if (yn.equals("n")) {
@@ -57,12 +58,11 @@ public class BankApp {
 
         }
     }
+    //MODIFIES: this
+    //EFFECTS: Performs the creation of a new bank account when option 1 is chosen
 
-    //EFFECTS: Performs the creation of a new bak account when option 1 is chosen
-//MODIFIES: this
     public void displayOption1() {
-        System.out.println("To create a new account please enter the following details: ");
-        System.out.println("Enter your full legal name ");
+        System.out.println("To create a new account please enter the following details: first enter name ");
         String name = sc.next();
         sc.nextLine();
         System.out.println("Enter your email id ");
@@ -70,22 +70,24 @@ public class BankApp {
         sc.nextLine();
         System.out.println("Enter your residential address ");
         String address = sc.nextLine();
-        System.out.println("Enter your mobile number ");
+        System.out.println("Enter your mobile number followed by SIN ");
         String mob = sc.next();
         sc.nextLine();
-        System.out.println("Enter your SIN ");
         String sin = sc.next();
         sc.nextLine();
         System.out.println("Enter your new password ");
         String password = sc.next();
         sc.nextLine();
+        System.out.println("Enter the initial money you would like to deposit");
         double balance = sc.nextDouble();
         sc.nextLine();
         BankAccount newAcc = new BankAccount(email, password, name, address, mob, sin, balance);
         myList.addAccount(newAcc);
+        saveWorkRoom();
         System.out.println("Account successfully created");
     }
 
+    //MODIFIES: this
     //EFFECTS: Allows the user to log in and execute his desired banking operations
     public void displayOption2() {
         System.out.println("To login ,please enter your email id and password ");
@@ -108,9 +110,9 @@ public class BankApp {
             }
         }
     }
-
+    //MODIFIES: this
     //EFFECTS: Deposits the money in the bank account
-//MODIFIES: BankAccount b
+
     public void option1(BankAccount b) {
         System.out.println("How much money would you like to deposit to your account?");
         Double money = sc.nextDouble();
@@ -118,10 +120,10 @@ public class BankApp {
         b.deposit(money);
         System.out.println("Deposit successful");
     }
-
+    //MODIFIES: this
     //EFFECTS: Withdraws money from the bank account. Gives error message if amount asked is greater than account
     // balance
-//MODIFIES: BankAccount b
+
     public void option2(BankAccount b) {
         System.out.println("How much money would you like to withdraw from your account?");
         Double money = sc.nextDouble();
@@ -145,10 +147,12 @@ public class BankApp {
         System.out.println("Contact number:" + " " + b.getMobileNumber());
         System.out.println("SIN:" + " " + b.getSin());
     }
-
+    //MODIFIES: this
     //EFFECTS: Deletes the account
+
     public void option4(BankAccount b) {
         myList.delAccount(b);
+        saveWorkRoom();
         System.out.println("Account deleted");
         System.exit(0);
     }
@@ -166,6 +170,7 @@ public class BankApp {
     }
 
     //EFFECTS: Checks which option has been entered and performs the appropriate banking operation accordingly.
+    //MODIFIES: this
     public void pb2(BankAccount b) {
         System.out.println("Welcome" + " " + b.getName());
         while (true) {
@@ -194,10 +199,10 @@ public class BankApp {
     }
 
     // EFFECTS: saves the workroom to file
-    private void saveWorkRoom() {
+    public void saveWorkRoom() {
         try {
             jsonWriter.open();
-            jsonWriter.write(myList);
+            jsonWriter.write(this.myList);
             jsonWriter.close();
             System.out.println("Saved " + myList.returnName() + " to " + JSON_STORE);
         } catch (FileNotFoundException e) {
@@ -206,10 +211,10 @@ public class BankApp {
     }
 
     // MODIFIES: this
-    // EFFECTS: loads the workroom from file
-    private void loadWorkRoom() {
+    // EFFECTS: loads the list of bank accounts from file
+    public void loadWorkRoom() {
         try {
-            myList = jsonReader.read();
+            this.myList = jsonReader.read();
             System.out.println("Loaded " + myList.returnName() + " from " + JSON_STORE);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);
