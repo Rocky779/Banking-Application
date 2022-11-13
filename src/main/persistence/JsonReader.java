@@ -15,7 +15,7 @@ import org.json.*;
 
 // Represents a reader that reads List from JSON data stored in file
 public class JsonReader {
-    private String source;
+    private static String source;
 
     // EFFECTS: constructs reader to read from source file
     public JsonReader(String source) {
@@ -24,14 +24,14 @@ public class JsonReader {
 
     // EFFECTS: reads ListOfBankAccounts from file and returns it;
     // throws IOException if an error occurs reading data from file
-    public ListBankAccounts read() throws IOException {
+    public static ListBankAccounts read() throws IOException {
         String jsonData = readFile(source);
         JSONObject jsonObject = new JSONObject(jsonData);
         return parseListBankAccount(jsonObject);
     }
 
     // EFFECTS: reads source file as string and returns it
-    private String readFile(String source) throws IOException {
+    private static String readFile(String source) throws IOException {
         StringBuilder contentBuilder = new StringBuilder();
 
         try (Stream<String> stream = Files.lines(Paths.get(source), StandardCharsets.UTF_8)) {
@@ -42,7 +42,7 @@ public class JsonReader {
     }
     // EFFECTS: parses listOfBankAccount from JSON object and returns it
 
-    private ListBankAccounts parseListBankAccount(JSONObject jsonObject) {
+    private static ListBankAccounts parseListBankAccount(JSONObject jsonObject) {
         String name = jsonObject.getString("name");
         ListBankAccounts wr = new ListBankAccounts(name);
         addBankAccounts(wr, jsonObject);
@@ -52,7 +52,7 @@ public class JsonReader {
 
     // MODIFIES: wr
     // EFFECTS: parses accounts from JSON object and adds them to listOfBankAccounts
-    private void addBankAccounts(ListBankAccounts wr, JSONObject jsonObject) {
+    private static void addBankAccounts(ListBankAccounts wr, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("myBank");
         for (Object json : jsonArray) {
             JSONObject nextAcc = (JSONObject) json;
@@ -62,7 +62,7 @@ public class JsonReader {
 
     // MODIFIES: wr
     // EFFECTS: parses Acc from JSON object and adds it to ListOfBankAccounts
-    private void addBankAccount(ListBankAccounts wr, JSONObject jsonObject) {
+    private static void addBankAccount(ListBankAccounts wr, JSONObject jsonObject) {
         String email = jsonObject.getString("email");
         String password = jsonObject.getString("password");
         String name = jsonObject.getString("name");

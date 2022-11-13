@@ -65,6 +65,18 @@ public class ListBankAccounts implements Writable {
         return jsonArray;
     }
 
+    public String descriptionAcc() {
+        String listings = "";
+        for (int i = 0; i < myBank.size(); i++) {
+            listings += "Account Number" + i + "\n" + "Email" + myBank.get(i).getEmail()
+                    + "\n" + "Password" + myBank.get(i).getPassword() + "\n"
+                    + "Name" + myBank.get(i).getName() + "\n" + "Address" + myBank.get(i).getAddress() + "\n"
+                    + "Mobile number" + myBank.get(i).getMobileNumber() + "\n" + "SIN" + myBank.get(i).getSin() + "\n"
+                    + "Bank balance" + myBank.get(i).getBankBalance() + "\n" + "\n";
+        }
+        return listings;
+    }
+
 }
 
 

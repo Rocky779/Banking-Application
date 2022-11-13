@@ -17,9 +17,10 @@ This project is of interest to me as I am interested in banking and finance. Thi
 
 Comments and Citations:
 
-*Data persistence is based on the supplied Workroom example for CPSC 210. All classes,interfaces and tests related to
+* Data persistence is based on the supplied Workroom example for CPSC 210. All classes,interfaces and tests related to
 data persistence have been based on the sample application supplied for CPSC 210.* https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo/tree/master/src/main/persistence
-
+* Swing components and syntaxes were referred from https://docs.oracle.com/javase/tutorial/uiswing/examples/components/index.html
+* https://github.students.cs.ubc.ca/CPSC210/AlarmSystem was referred to while making the GUI.
 ## User Stories
 * As a user I want to be able to create a new bank account after choosing a username and password. After doing that and giving out details like SIN,name,residential address,phone number and email address, all these details will be stored as a BankAccount data type. This account  will be added to a list which will contain such details of other users as well.
 * As a user I want to be able to login after creating my new account using my username and password and log out as well. Being able to log in indicates that account details have been successfully added to the list of bank accounts.
@@ -29,5 +30,10 @@ data persistence have been based on the sample application supplied for CPSC 210
 * As a user, I want to be able to save the list of bank accounts to file.
 * As a user, I want to be able to be able to load the list of bank accounts from file.
 
-
+## Instructions For Grader
+* You can add and create your new account to the list of Bank Accounts by clicking on "Create your new account" button and after inputting the information , upon clicking "Add account to list of accounts", the account will be added.
+* You can remove the latest account that was added to the list of Bank Accounts by using this GUI(Accounts that were only added to the list using the GUI) by using the "Delete Bank Account" button.
+* You can locate my visual component as an image on the main menu panel of a Bank or by clicking "View Current Accounts", you can view two images that explain the features of a checking account.
+* You can save the state of my application by clicking  on "Save account to file" button.
+* You can reload the state of my application by clicking on "Load accounts file" button.
 

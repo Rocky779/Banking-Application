@@ -17,6 +17,24 @@
             "bank balance": 789,
             "sin": "789",
             "email": "789"
+        },
+        {
+            "password": "1234",
+            "address": "Brampton",
+            "mobile number": "12345",
+            "name": "oppenheimer",
+            "bank balance": 34567,
+            "sin": "2345",
+            "email": "qwerty@gmail.com"
+        },
+        {
+            "password": "123",
+            "address": "123",
+            "mobile number": "123",
+            "name": "Mark",
+            "bank balance": 123,
+            "sin": "123",
+            "email": "qwertyui@gmail.com"
         }
     ],
     "name": "The account"

@@ -14,8 +14,11 @@ import persistence.JsonReader;
 
 import persistence.JsonWriter;
 
+import javax.swing.*;
+
 //Represents the Banking Application
-public class BankApp {
+public class BankApp extends JFrame {
+
     private static final String JSON_STORE = "./data/work-acc.json";
     Scanner sc = new Scanner(System.in);
     ListBankAccounts myList = new ListBankAccounts("The account");
