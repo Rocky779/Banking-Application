@@ -21,10 +21,10 @@ public class BankListTest {
     void runBefore() {
         testList = new ListBankAccounts("Bank1");
         b = new BankAccount("rsa@gmail.com", "123456", "Robert", "1755 Park Lane",
-                "6057899009", "123456789",0);
+                "6057899009", "123456789", 0);
         arrayList = new ArrayList<>();
         a = new BankAccount("rsa4@gmail.com", "123456", "Tom", "1745 Park Lane",
-                "6057890009", "193456789",0);
+                "6057890009", "193456789", 0);
     }
 
     @Test
@@ -95,6 +95,17 @@ public class BankListTest {
         testList.addAccount(a);
         arrayList.add(a);
         assertEquals(testList.returnList(), arrayList);
+    }
+
+    @Test
+    void displayTest() {
+        testList.addAccount(a);
+        assertEquals("Account Number" + "0" + "\n" + "Email" + a.getEmail()
+                + "\n" + "Password" + a.getPassword() + "\n"
+                + "Name" + a.getName() + "\n" + "Address" + a.getAddress() + "\n"
+                + "Mobile number" + a.getMobileNumber() + "\n" + "SIN" + a.getSin() + "\n"
+                + "Bank balance" + a.getBankBalance() + "\n" + "\n", testList.descriptionAcc());
+
     }
 
 }

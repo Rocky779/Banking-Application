@@ -35,5 +35,5 @@ data persistence have been based on the sample application supplied for CPSC 210
 * You can remove the latest account that was added to the list of Bank Accounts by using this GUI(Accounts that were only added to the list using the GUI) by using the "Delete Bank Account" button.
 * You can locate my visual component as an image on the main menu panel of a Bank or by clicking "View Current Accounts", you can view two images that explain the features of a checking account.
 * You can save the state of my application by clicking  on "Save account to file" button.
-* You can reload the state of my application by clicking on "Load accounts file" button.
+* You can reload the state of my application by clicking on the "Load accounts file" button.
 
