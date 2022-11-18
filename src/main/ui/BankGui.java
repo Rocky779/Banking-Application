@@ -263,7 +263,7 @@ public class BankGui extends JFrame implements ActionListener {
 
     // MODIFIES: this
     // EFFECTS: Adds the new account into the ListOfBankAccounts object to be displayed
-    //HTML Code syntax referred from https://docs.oracle.com/javase/tutorial/uiswing/components/html.html
+    //HTML used due to linebreak error through normal printing of strings. Code syntax referred from https://docs.oracle.com/javase/tutorial/uiswing/components/html.html
 
     public void addToList() {
         try {
