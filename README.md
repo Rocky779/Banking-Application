@@ -19,7 +19,8 @@ Comments and Citations:
 
 * Data persistence is based on the supplied Workroom example for CPSC 210. All classes,interfaces and tests related to
 data persistence have been based on the sample application supplied for CPSC 210.* https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo/tree/master/src/main/persistence
-* Swing components and syntaxes were referred from https://docs.oracle.com/javase/tutorial/uiswing/examples/components/index.html
+* Swing components and syntax were referred from https://docs.oracle.com/javase/tutorial/uiswing/examples/components/index.html
+* Event handling of GUI is referred from information provided on EDX that links to https://stackoverflow.com/questions/6578205/swing-jlabel-text-change-on-the-running-application
 * https://github.students.cs.ubc.ca/CPSC210/AlarmSystem was referred to while making the GUI.
 ## User Stories
 * As a user I want to be able to create a new bank account after choosing a username and password. After doing that and giving out details like SIN,name,residential address,phone number and email address, all these details will be stored as a BankAccount data type. This account  will be added to a list which will contain such details of other users as well.

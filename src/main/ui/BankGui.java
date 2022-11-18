@@ -24,9 +24,6 @@ public class BankGui extends JFrame implements ActionListener {
     private JPanel panelAcc;
     private JButton b1;
     private JButton b2;
-
-    private JButton b3;
-    private JButton b4;
     private JButton b5;
     private JButton b6;
     private JButton b7;
@@ -53,41 +50,33 @@ public class BankGui extends JFrame implements ActionListener {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
-//EFFECTS: Constructs The GUI JFrame of the Banking Application
+    //EFFECTS: Constructs The GUI JFrame of the Banking Application
     public BankGui() {
         super("Banking App");
         jsonWriter = new JsonWriter(DATA_WORK_ACC_JSON);
         jsonReader = new JsonReader(DATA_WORK_ACC_JSON);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setPreferredSize(new Dimension(500, 500));
-        menuMaker();
+        mainMenuMaker();
         showBankAccounts();
         inputAccPanel();
         JLabel introLabel = new JLabel("Welcome to Bank of British Columbia");
-        JLabel desktop = new JLabel();
-        insert(introLabel);
-        imageOnMenu(desktop);
+        introLabel.setFont(new Font("Arial", Font.BOLD, 25));
+        mainPanel.add(introLabel);
+        JLabel j = new JLabel();
+        j.setIcon(new ImageIcon("./data/bank.jpeg"));
+        j.setMinimumSize(new Dimension(20, 20));
+        mainPanel.add(j);
         createPanelObjects();
-        insertButtons(b1, b2, b3, b4, b5, b6, b7,b8);
+        insertButtons(b1, b2, b5, b6, b7, b8);
         performButton();
         mainPanel.setVisible(true);
     }
-//EFFECTS: Constructs the panel that constitutes of the main menu and sets its background color.
 
-    public void menuMaker() {
-        mainPanel = new JPanel();
-        mainPanel.setBackground(Color.CYAN);
-        add(mainPanel);
-        accounts = new JLabel();
-        accounts.setText("No accounts available");
-    }
-
-//EFFECTS: Initialises the buttons that lie on the main menu panel.
+    //EFFECTS: Initialises the buttons that lie on the main menu panel.
     public void createPanelObjects() {
         b1 = new JButton("View current accounts");
         b2 = new JButton("Create your new account");
-        b3 = new JButton("Add account to list");
-        b4 = new JButton("Return to main menu");
         b5 = new JButton("Save account to file");
         b6 = new JButton("Load accounts file");
         b7 = new JButton("Exit Banking application");
@@ -105,45 +94,28 @@ public class BankGui extends JFrame implements ActionListener {
         setVisible(true);
         setResizable(false);
     }
+    //EFFECTS: Creates the main menu panel
+
+    public void mainMenuMaker() {
+        mainPanel = new JPanel();
+        mainPanel.setBackground(Color.CYAN);
+        add(mainPanel);
+        accounts = new JLabel();
+        accounts.setText("No accounts available");
+
+    }
 //EFFECTS: Places a call to insertButton for each required button on the main menu panel.
 
-    public void insertButtons(JButton b1, JButton b2, JButton b3, JButton b4, JButton b5, JButton b6,
-                              JButton b7,JButton b8) {
+    public void insertButtons(JButton b1, JButton b2, JButton b5, JButton b6,
+                              JButton b7, JButton b8) {
         insertButton(b1, mainPanel);
         insertButton(b2, mainPanel);
-        insertButton(b3, mainPanel);
-        insertButton(b4, mainPanel);
         insertButton(b5, mainPanel);
         insertButton(b6, mainPanel);
         insertButton(b7, mainPanel);
         insertButton(b8, mainPanel);
     }
-    // EFFECTS: Creates a button and adds it to the given panel different from main menu by changing the
-    // color and text of the button from those on the main menu
 
-    public void addOnMainMenu(JButton button1, JPanel panel) {
-        button1.setFont(new Font("Arial", Font.BOLD, 12));
-        button1.setBackground(Color.BLACK);
-        button1.setForeground(Color.BLACK);
-        panel.add(button1);
-        pack();
-        setLocationRelativeTo(null);
-        setVisible(true);
-        setResizable(false);
-    }
-//EFFECTS: Creates the text label that displays the Welcome message on the main menu panel.
-
-    public void insert(JLabel j) {
-        j.setFont(new Font("Arial", Font.BOLD, 25));
-        mainPanel.add(j);
-    }
-    //EFFECTS: displays the bank image on the main menu panel
-
-    public void imageOnMenu(JLabel j) {
-        j.setIcon(new ImageIcon("./data/bank.jpeg"));
-        j.setMinimumSize(new Dimension(20, 20));
-        mainPanel.add(j);
-    }
     //MODIFIES:this
     //EFFECTS:Sets action commands to the buttons.
 
@@ -152,10 +124,6 @@ public class BankGui extends JFrame implements ActionListener {
         b1.setActionCommand("View Current Accounts");
         b2.addActionListener(this);
         b2.setActionCommand("Create and add your new account");
-        b3.addActionListener(this);
-        b3.setActionCommand("Add your new account");
-        b4.addActionListener(this);
-        b4.setActionCommand("Return to main menu");
         b5.addActionListener(this);
         b5.setActionCommand("Save account to file");
         b6.addActionListener(this);
@@ -179,7 +147,7 @@ public class BankGui extends JFrame implements ActionListener {
         } else if (a.getActionCommand().equals("Save account to file")) {
             saveAcc();
         } else if (a.getActionCommand().equals("Return to main menu")) {
-            comeBack();
+            comeToMainMenu();
         } else if (a.getActionCommand().equals("load accounts to file")) {
             loadAcc();
         } else if (a.getActionCommand().equals("Exit banking application")) {
@@ -187,6 +155,14 @@ public class BankGui extends JFrame implements ActionListener {
         } else if (a.getActionCommand().equals("Delete Bank Account")) {
             deleteAcc(account);
         }
+    }
+    //EFFECTS:Performs the function of the return to main menu button where except for the main menu
+    // panel all other panels are set tp false
+
+    public void comeToMainMenu() {
+        mainPanel.setVisible(true);
+        panelAcc.setVisible(false);
+        listingsAcc.setVisible(false);
     }
     //MODIFIES: this
     //EFFECTS:Creates the panel that allows the user to input details of their new account
@@ -197,7 +173,7 @@ public class BankGui extends JFrame implements ActionListener {
         JButton mainMenuButton = new JButton("Return to main menu");
         mainMenuButton.setActionCommand("Return to main menu");
         mainMenuButton.addActionListener(this);
-        addOnMainMenu(mainMenuButton, listingsAcc);
+        insertButton(mainMenuButton, listingsAcc);
         createAccDisplayPage();
         addLabelsToDisplay();
     }
@@ -233,7 +209,36 @@ public class BankGui extends JFrame implements ActionListener {
         a6 = new JTextField(10);
         bankBalance = new JLabel("Initial money deposit");
         a7 = new JTextField(10);
-        displayLabelSettings();
+
+        addAcc.setBackground(Color.BLACK);
+        addAcc.setForeground(Color.BLACK);
+        addAcc.setFont(new Font("Arial", Font.BOLD, 10));
+        setLabel();
+        setTextBoxDimension();
+    }
+//EFFECTS: Sets the dimensions of the text boxes where the user input is made on the inputAcc panel
+
+    public void setTextBoxDimension() {
+        a1.setMaximumSize(new Dimension(1000, 300));
+        a2.setMaximumSize(new Dimension(1000, 300));
+        a3.setMaximumSize(new Dimension(1000, 300));
+        a4.setMaximumSize(new Dimension(1000, 300));
+        a5.setMaximumSize(new Dimension(1000, 300));
+        a6.setMaximumSize(new Dimension(1000, 300));
+        a7.setMaximumSize(new Dimension(1000, 300));
+    }
+
+    //EFFECTS: Sets the parameters for designing the different labels adjoining to their respective text boxes on the
+    // inputAcc panel
+    public void setLabel() {
+        email.setFont(new Font("Arial", Font.BOLD, 20));
+        password.setFont(new Font("Arial", Font.BOLD, 20));
+        name.setFont(new Font("Arial", Font.BOLD, 20));
+        address.setFont(new Font("Arial", Font.BOLD, 20));
+        mobileNumber.setFont(new Font("Arial", Font.BOLD, 20));
+        sin.setFont(new Font("Arial", Font.BOLD, 20));
+        bankBalance.setFont(new Font("Arial", Font.BOLD, 20));
+
     }
 
     // EFFECTS: Adds the user input labels and boxes to the required panel
@@ -255,30 +260,7 @@ public class BankGui extends JFrame implements ActionListener {
         listingsAcc.add(a7);
 
     }
-    // EFFECTS: Changes attributes of the labels and text fields
 
-    public void displayLabelSettings() {
-        addAcc.setBackground(Color.BLACK);
-        addAcc.setForeground(Color.BLACK);
-        addAcc.setFont(new Font("Arial", Font.BOLD, 10));
-
-        email.setFont(new Font("ComicSans", Font.BOLD, 20));
-        password.setFont(new Font("ComicSans", Font.BOLD, 20));
-        name.setFont(new Font("ComicSans", Font.BOLD, 20));
-        address.setFont(new Font("ComicSans", Font.BOLD, 20));
-        mobileNumber.setFont(new Font("ComicSans", Font.BOLD, 20));
-        sin.setFont(new Font("ComicSans", Font.BOLD, 20));
-        bankBalance.setFont(new Font("ComicSans", Font.BOLD, 20));
-
-
-        a1.setMaximumSize(new Dimension(1000, 300));
-        a2.setMaximumSize(new Dimension(1000, 300));
-        a3.setMaximumSize(new Dimension(1000, 300));
-        a4.setMaximumSize(new Dimension(1000, 300));
-        a5.setMaximumSize(new Dimension(1000, 300));
-        a6.setMaximumSize(new Dimension(1000, 300));
-        a7.setMaximumSize(new Dimension(1000, 300));
-    }
     // MODIFIES: this
     // EFFECTS: Adds the new account into the ListOfBankAccounts object to be displayed
     //HTML Code syntax referred from https://docs.oracle.com/javase/tutorial/uiswing/components/html.html
@@ -292,8 +274,6 @@ public class BankGui extends JFrame implements ActionListener {
 
         } catch (NumberFormatException e) {
             System.out.println("Invalid entry!");
-        } catch (IndexOutOfBoundsException e) {
-            accounts.setText("Please initialize accounts file before proceeding");
         }
 
     }
@@ -305,23 +285,24 @@ public class BankGui extends JFrame implements ActionListener {
         JLabel image2 = new JLabel();
         panelAcc = new JPanel(new GridLayout(2, 2));
         JScrollPane scroll = new JScrollPane(accounts, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
-                JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+                JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 
         JButton mainMenuObject = new JButton("Return to main menu");
         mainMenuObject.setActionCommand("Return to main menu");
         mainMenuObject.addActionListener(this);
-        addOnMainMenu(mainMenuObject, panelAcc);
-
-        image.setIcon(new ImageIcon("./data/c.png"));
-        image.setMinimumSize(new Dimension(20,20));
-        panelAcc.add(image);
-
-        image2.setIcon(new ImageIcon("./data/image004.png"));
-        image2.setMinimumSize(new Dimension(20,20));
-        panelAcc.add(image2);
+        insertButton(mainMenuObject, panelAcc);
+        addImage("./data/c.png", image);
+        addImage("./data/image004.png", image2);
 
         accounts.setFont(new Font("ComicSans", Font.BOLD, 12));
         panelAcc.add(scroll);
+    }
+//EFFECTS: Adds images on the panelAcc panel.
+
+    public void addImage(String file, JLabel j) {
+        j.setIcon(new ImageIcon(file));
+        panelAcc.add(j);
+
     }
 //EFFECTS: Adds the  current accounts panel to the screen and sets the other ones false so the user can only view the
 // necessary panel
@@ -335,6 +316,8 @@ public class BankGui extends JFrame implements ActionListener {
     // MODIFIES: this
     // EFFECTS: Removes the latest added account to the list of accounts by the user and displays a
     // message in the console
+    //HTML Code syntax referred from https://docs.oracle.com/javase/tutorial/uiswing/components/html.html
+
 
     public void deleteAcc(BankAccount acc) {
 
@@ -344,10 +327,10 @@ public class BankGui extends JFrame implements ActionListener {
             System.out.println("The account is no longer listed");
         } catch (NullPointerException e) {
             System.out.println("Please add an account before attempting to remove it");
-        } catch (IndexOutOfBoundsException e) {
-            accounts.setText("Initialise file");
         }
     }
+
+
     // MODIFIES: this
     // EFFECTS: loads the accounts from work-acc.json file if any account exists, otherwise prints error
     //HTML Code syntax referred from https://docs.oracle.com/javase/tutorial/uiswing/components/html.html
@@ -359,8 +342,6 @@ public class BankGui extends JFrame implements ActionListener {
             System.out.println("Listings loaded from file " + DATA_WORK_ACC_JSON);
         } catch (IOException e) {
             accounts.setText("No Listings added yet");
-        } catch (IndexOutOfBoundsException e) {
-            accounts.setText("Please initialize listings file before proceeding");
         }
     }
 // EFFECTS: saves new state of file after changes were made to it
@@ -371,22 +352,12 @@ public class BankGui extends JFrame implements ActionListener {
             jsonWriter.write(accList);
             jsonWriter.close();
             System.out.println("Accounts saved to file ");
-        } catch (NullPointerException e) {
-            System.out.println("Please load the file");
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
+        } catch (NullPointerException e) {
+            System.out.println("Please initialize accounts file before proceeding");
         }
     }
-    // EFFECTS: Performs the function of the return to main menu button where except for the main menu
-    // panel all other panels are set to false
-
-    public void comeBack() {
-        mainPanel.setVisible(true);
-        panelAcc.setVisible(false);
-        listingsAcc.setVisible(false);
-    }
-
-
 }
 
 

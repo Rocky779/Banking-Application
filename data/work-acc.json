@@ -35,6 +35,33 @@
             "bank balance": 123,
             "sin": "123",
             "email": "qwertyui@gmail.com"
+        },
+        {
+            "password": "123456",
+            "address": "1234 west park",
+            "mobile number": "1234567",
+            "name": "Yonny",
+            "bank balance": 123456,
+            "sin": "13456789",
+            "email": "134@gmail.com"
+        },
+        {
+            "password": "1234",
+            "address": "56788 west avenue",
+            "mobile number": "5678987654",
+            "name": "james",
+            "bank balance": 1346,
+            "sin": "5678854",
+            "email": "12345@gmail.com"
+        },
+        {
+            "password": "1234",
+            "address": "56788 west avenue",
+            "mobile number": "5678987654",
+            "name": "james",
+            "bank balance": 1346,
+            "sin": "5678854",
+            "email": "12345@gmail.com"
         }
     ],
     "name": "The account"
