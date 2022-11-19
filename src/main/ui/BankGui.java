@@ -50,7 +50,8 @@ public class BankGui extends JFrame implements ActionListener {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
-    //EFFECTS: Constructs The GUI JFrame of the Banking Application
+    //EFFECTS: Constructs The GUI of the Banking Application by adding JButtons,JPanels,JLabels,JTextFields
+    // on  the JFrame.
     public BankGui() {
         super("Banking App");
         jsonWriter = new JsonWriter(DATA_WORK_ACC_JSON);
@@ -214,22 +215,12 @@ public class BankGui extends JFrame implements ActionListener {
         addAcc.setForeground(Color.BLACK);
         addAcc.setFont(new Font("Arial", Font.BOLD, 10));
         setLabel();
-        setTextBoxDimension();
-    }
-//EFFECTS: Sets the dimensions of the text boxes where the user input is made on the inputAcc panel
-
-    public void setTextBoxDimension() {
-        a1.setMaximumSize(new Dimension(1000, 300));
-        a2.setMaximumSize(new Dimension(1000, 300));
-        a3.setMaximumSize(new Dimension(1000, 300));
-        a4.setMaximumSize(new Dimension(1000, 300));
-        a5.setMaximumSize(new Dimension(1000, 300));
-        a6.setMaximumSize(new Dimension(1000, 300));
-        a7.setMaximumSize(new Dimension(1000, 300));
     }
 
+    //MODIFIES: this
     //EFFECTS: Sets the parameters for designing the different labels adjoining to their respective text boxes on the
     // inputAcc panel
+
     public void setLabel() {
         email.setFont(new Font("Arial", Font.BOLD, 20));
         password.setFont(new Font("Arial", Font.BOLD, 20));
@@ -240,8 +231,9 @@ public class BankGui extends JFrame implements ActionListener {
         bankBalance.setFont(new Font("Arial", Font.BOLD, 20));
 
     }
-
+    //MODIFIES: this
     // EFFECTS: Adds the user input labels and boxes to the required panel
+
     public void addLabelsToDisplay() {
         listingsAcc.add(addAcc);
         listingsAcc.add(email);
@@ -297,6 +289,7 @@ public class BankGui extends JFrame implements ActionListener {
         accounts.setFont(new Font("ComicSans", Font.BOLD, 12));
         panelAcc.add(scroll);
     }
+//MODIFIES: this
 //EFFECTS: Adds images on the panelAcc panel.
 
     public void addImage(String file, JLabel j) {
@@ -304,7 +297,7 @@ public class BankGui extends JFrame implements ActionListener {
         panelAcc.add(j);
 
     }
-//EFFECTS: Adds the  current accounts panel to the screen and sets the other ones false so the user can only view the
+//EFFECTS: Adds the current accounts panel to the screen and sets the other ones false so the user can only view the
 // necessary panel
 
     public void makeAccountsPanel() {

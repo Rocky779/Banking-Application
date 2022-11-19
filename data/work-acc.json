@@ -62,6 +62,42 @@
             "bank balance": 1346,
             "sin": "5678854",
             "email": "12345@gmail.com"
+        },
+        {
+            "password": "123456",
+            "address": "Dubai",
+            "mobile number": "12345678",
+            "name": "Andrew",
+            "bank balance": 2.34567890976E11,
+            "sin": "123456789",
+            "email": "1234567@gmail.com"
+        },
+        {
+            "password": "123456",
+            "address": "Dubai",
+            "mobile number": "123456",
+            "name": "Andrew",
+            "bank balance": 7654321,
+            "sin": "123456",
+            "email": "tate@gmail.com"
+        },
+        {
+            "password": "123456",
+            "address": "Madrid",
+            "mobile number": "123456",
+            "name": "Ronaldo",
+            "bank balance": 7654321,
+            "sin": "123456",
+            "email": "tate1@gmail.com"
+        },
+        {
+            "password": "12347",
+            "address": "Vancity",
+            "mobile number": "12345678",
+            "name": "Tony",
+            "bank balance": 2345678,
+            "sin": "876321",
+            "email": "oasf@gmal.com"
         }
     ],
     "name": "The account"
