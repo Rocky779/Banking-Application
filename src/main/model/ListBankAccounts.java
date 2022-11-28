@@ -23,13 +23,16 @@ public class ListBankAccounts implements Writable {
     //MODIFIES: this
     //EFFECTS: ADDS A BANK ACCOUNT TO THE LIST
     public void addAccount(BankAccount acc) {
+
         myBank.add(acc);
+        EventLog.getInstance().logEvent(new Event("Account added"));
     }
 
     //MODIFIES: this
     //EFFECTS: Remove a bank account from the list
     public void delAccount(BankAccount acc) {
         myBank.remove(acc);
+        EventLog.getInstance().logEvent(new Event("Account removed"));
     }
 
     //EFFECTS: Returns size of the list
@@ -74,6 +77,7 @@ public class ListBankAccounts implements Writable {
                     + "Mobile number" + myBank.get(i).getMobileNumber() + "\n" + "SIN" + myBank.get(i).getSin() + "\n"
                     + "Bank balance" + myBank.get(i).getBankBalance() + "\n" + "\n";
         }
+        EventLog.getInstance().logEvent(new Event("Account information displayed"));
         return listings;
     }
 

@@ -13,7 +13,8 @@ import persistence.JsonReader;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
+import model.EventLog;
+//Represents the graphical user interface of the Banking application
 
 public class BankGui extends JFrame implements ActionListener {
     private static final String DATA_WORK_ACC_JSON = "./data/work-acc.json";
@@ -152,6 +153,9 @@ public class BankGui extends JFrame implements ActionListener {
         } else if (a.getActionCommand().equals("load accounts to file")) {
             loadAcc();
         } else if (a.getActionCommand().equals("Exit banking application")) {
+            for (model.Event e : EventLog.getInstance()) {
+                System.out.println(e);
+            }
             System.exit(0);
         } else if (a.getActionCommand().equals("Delete Bank Account")) {
             deleteAcc(account);

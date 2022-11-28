@@ -22,6 +22,7 @@ data persistence have been based on the sample application supplied for CPSC 210
 * Swing components and syntax were referred from https://docs.oracle.com/javase/tutorial/uiswing/examples/components/index.html
 * Event handling of GUI is referred from information provided on EDX that links to https://stackoverflow.com/questions/6578205/swing-jlabel-text-change-on-the-running-application
 * https://github.students.cs.ubc.ca/CPSC210/AlarmSystem was referred to while making the GUI.
+* Event logging is based on the following workroom example supplied for CPSC 210:https://github.students.cs.ubc.ca/CPSC210/AlarmSystem
 ## User Stories
 * As a user I want to be able to create a new bank account after choosing a username and password. After doing that and giving out details like SIN,name,residential address,phone number and email address, all these details will be stored as a BankAccount data type. This account  will be added to a list which will contain such details of other users as well.
 * As a user I want to be able to login after creating my new account using my username and password and log out as well. Being able to log in indicates that account details have been successfully added to the list of bank accounts.
@@ -38,3 +39,101 @@ data persistence have been based on the sample application supplied for CPSC 210
 * You can save the state of my application by clicking  on "Save account to file" button.
 * You can reload the state of my application by clicking on the "Load accounts file" button.
 
+## Phase 4 Task 2
+For this phase, I have logged the following events:
+* When a user adds a new account to the list of accounts
+* When a user removes an account from the list of accounts
+* When a user wishes to view the existing accounts in the list of accounts.
+
+Below is the console output of logged events after exiting the banking application after performing my operations:
+
+Sun Nov 27 19:21:23 PST 2022 
+
+Account added
+
+Sun Nov 27 19:21:23 PST 2022
+
+Account added
+
+Sun Nov 27 19:21:23 PST 2022
+
+Account added
+
+Sun Nov 27 19:21:23 PST 2022
+
+Account added
+
+Sun Nov 27 19:21:23 PST 2022
+
+Account added
+
+Sun Nov 27 19:21:23 PST 2022
+
+Account added
+
+Sun Nov 27 19:21:23 PST 2022
+
+Account added
+
+Sun Nov 27 19:21:23 PST 2022
+
+Account added
+
+Sun Nov 27 19:21:23 PST 2022
+
+Account added
+
+Sun Nov 27 19:21:23 PST 2022
+
+Account added
+
+Sun Nov 27 19:21:23 PST 2022
+
+Account added
+
+Sun Nov 27 19:21:23 PST 2022
+
+Account added
+
+Sun Nov 27 19:21:23 PST 2022
+
+Account added
+
+Sun Nov 27 19:21:23 PST 2022
+
+Account added
+
+Sun Nov 27 19:21:23 PST 2022
+
+Account information displayed
+
+Sun Nov 27 19:23:13 PST 2022
+
+Account added
+
+Sun Nov 27 19:23:13 PST 2022
+
+Account information displayed
+
+Sun Nov 27 19:23:32 PST 2022
+
+Account removed
+
+Sun Nov 27 19:23:32 PST 2022
+
+Account information displayed
+
+Process finished with exit code 0
+
+Interpretation:
+
+* For this part of the project first I load the file , which adds all accounts that were saved in the file to the list of 
+bank accounts hence showing the event "Account Added" several times initially without actually clicking th add account button.
+* Then I clicked on view accounts and hence the event "Account information displayed" is shown.
+* After that I created a new account and added it to the list, hence showing the event "Account Added".
+* After that to check if account was added, I clicked on view existing accounts and hence the event 
+"Account information displayed" is shown.
+* Then I clicked on delete account which removed the latest account added to the list hence showing the event
+"Account removed".
+* After that I once again viewed the existing accounts hence the event "Account information displayed" is shown.
+* Then after saving the changes to file, I exited the banking application.

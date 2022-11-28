@@ -98,6 +98,33 @@
             "bank balance": 2345678,
             "sin": "876321",
             "email": "oasf@gmal.com"
+        },
+        {
+            "password": "123456",
+            "address": "1235 west",
+            "mobile number": "123456432",
+            "name": "Tom",
+            "bank balance": 1.234676542E9,
+            "sin": "12345676543",
+            "email": "rsa24566373@gmail.com"
+        },
+        {
+            "password": "123456",
+            "address": "12345 west",
+            "mobile number": "2345432",
+            "name": "Harris",
+            "bank balance": 1.23456765E8,
+            "sin": "234567754",
+            "email": "12345@gmail.com"
+        },
+        {
+            "password": "123456789",
+            "address": "1234 west",
+            "mobile number": "12345677",
+            "name": "Messi",
+            "bank balance": 1.24567543E8,
+            "sin": "234567432",
+            "email": "rsa2777@gmail.com"
         }
     ],
     "name": "The account"
