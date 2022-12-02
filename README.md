@@ -137,3 +137,35 @@ bank accounts hence showing the event "Account Added" several times initially wi
 "Account removed".
 * After that I once again viewed the existing accounts hence the event "Account information displayed" is shown.
 * Then after saving the changes to file, I exited the banking application.
+
+## Phase 4 Task 3
+* In the BankAccount and ListBankAccount classes, I believe cohesion is decently high as BankAccount calls only focuses
+on functions and manipulating an individual Bank account whereas ListBankAccount only focuses on managing the list of 
+bank accounts and not every individual bank account.
+* In the BankApp and BankGui, the cohesion is low as each of these classes perform several functions related to 
+multiple cohesive concepts. Cohesion can be improved here by splitting the class into several different classes where 
+each class is centered around one cohesive concept.
+* Coupling is at a medium level in this application where classes have associations with each other , 
+a change in one class does require a remote change, but the compiler warns the developer that the change is needed.
+
+* If I had more time for refactoring, I would do the following:
+* First in BankGui, for the performButton() function that allots action commands and action listeners to the buttons, 
+I would perhaps create a separate function that takes a button, an action command, and the action listener and allots the buttons the 
+action command and action listener by just calling the function for each button instead of separately adding action commands and action listeners.
+This can be done to reduce code duplication.
+* In BankApp , the displaying of choices and performing the respective functions of those choices could be split into another class. In BankGui, the creation of buttons and panels
+  and the respective manipulations and designing of these buttons and panels can be split into separate classes that specifically perform those functions.
+* In Bank app the code block that is similar to as follows in runBank():
+
+System.out.println("Do you want to continue? enter y/n ");
+
+  String ch = sc.next();
+
+  if (ch.equals("n")) {
+
+  System.out.println("Thank you!You have successfully logged out");
+
+  break;
+
+Can be refactored as a single function and then that function that can be used multiple times instead of typing the 
+same block of code multiple times as done in the runBank function.

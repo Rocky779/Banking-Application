@@ -22,6 +22,7 @@ public class BankApp extends JFrame {
     private static final String JSON_STORE = "./data/work-acc.json";
     Scanner sc = new Scanner(System.in);
     ListBankAccounts myList = new ListBankAccounts("The account");
+    BankAccount newAcc;
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
@@ -84,7 +85,7 @@ public class BankApp extends JFrame {
         System.out.println("Enter the initial money you would like to deposit");
         double balance = sc.nextDouble();
         sc.nextLine();
-        BankAccount newAcc = new BankAccount(email, password, name, address, mob, sin, balance);
+        newAcc = new BankAccount(email, password, name, address, mob, sin, balance);
         myList.addAccount(newAcc);
         saveWorkRoom();
         System.out.println("Account successfully created");
