@@ -153,7 +153,7 @@ a change in one class does require a remote change, but the compiler warns the d
 I would perhaps create a separate function that takes a button, an action command, and the action listener and allots the buttons the 
 action command and action listener by just calling the function for each button instead of separately adding action commands and action listeners.
 This can be done to reduce code duplication.
-* In BankApp , the displaying of choices and performing the respective functions of those choices could be split into another class. In BankGui, the creation of buttons and panels
+* In BankApp , the displaying of choices and performing the respective functions of those choices could be split into another class to increase cohesion. In BankGui, the creation of buttons and panels
   and the respective manipulations and designing of these buttons and panels can be split into separate classes that specifically perform those functions.
 * In Bank app the code block that is similar to as follows in runBank():
 
