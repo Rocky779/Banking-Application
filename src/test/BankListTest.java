@@ -3,6 +3,10 @@ import model.BankAccount;
 import model.ListBankAccounts;
 
 import java.util.ArrayList;
+import java.util.Collection;
+
+import model.EventLog;
+import model.Event;
 
 
 import org.junit.jupiter.api.BeforeEach;
@@ -17,6 +21,11 @@ public class BankListTest {
     private BankAccount a;
     private BankAccount b;
 
+    private static EventLog events;
+    private ArrayList<String> theLog;
+    private ArrayList<String> theLog2;
+
+
     @BeforeEach
     void runBefore() {
         testList = new ListBankAccounts("Bank1");
@@ -25,6 +34,11 @@ public class BankListTest {
         arrayList = new ArrayList<>();
         a = new BankAccount("rsa4@gmail.com", "123456", "Tom", "1745 Park Lane",
                 "6057890009", "193456789", 0);
+        theLog = new ArrayList<>();
+        events = EventLog.getInstance();
+        theLog2 = new ArrayList<>();
+
+
     }
 
     @Test
@@ -35,8 +49,6 @@ public class BankListTest {
     @Test
     void testAddAcc() {
         assertEquals(testList.returnList().add(b), arrayList.add(b));
-
-
     }
 
     @Test
@@ -105,6 +117,27 @@ public class BankListTest {
                 + "Name" + a.getName() + "\n" + "Address" + a.getAddress() + "\n"
                 + "Mobile number" + a.getMobileNumber() + "\n" + "SIN" + a.getSin() + "\n"
                 + "Bank balance" + a.getBankBalance() + "\n" + "\n", testList.descriptionAcc());
+
+    }
+    @Test
+    void eventTest(){
+        EventLog.getInstance().clear();
+        testList.addAccount(a);
+        testList.addAccount(b);
+        testList.descriptionAcc();
+        testList.delAccount(a);
+        theLog.add("Account added");
+        theLog.add("Account added");
+        theLog.add("Account information displayed");
+        theLog.add("Account removed");
+
+        assertEquals(EventLog.getInstance(),events);
+        for (model.Event e: EventLog.getInstance()){
+            theLog2.add(e.getDescription());
+        }
+        theLog2.remove(0);
+        assertEquals(theLog2,theLog);
+
 
     }
 
