@@ -128,7 +128,7 @@ Process finished with exit code 0
 Interpretation:
 
 * For this part of the project first I load the file , which adds all accounts that were saved in the file to the list of 
-bank accounts hence showing the event "Account Added" several times initially without actually clicking th add account button.
+bank accounts hence showing the event "Account Added" several times initially without actually clicking the add account button.
 * Then I clicked on view accounts and hence the event "Account information displayed" is shown.
 * After that I created a new account and added it to the list, hence showing the event "Account Added".
 * After that to check if account was added, I clicked on view existing accounts and hence the event 
